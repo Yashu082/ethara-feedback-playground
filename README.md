@@ -1,36 +1,166 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ethara Feedback Playground
 
-## Getting Started
+A full-stack RLHF-inspired evaluation platform built to simulate human feedback collection workflows used in modern AI alignment systems.
 
-First, run the development server:
+## Live Demo
+
+- [Live Application](https://ethara-feedback-playground.vercel.app/)
+- [GitHub Repository](https://github.com/Yashu082/ethara-feedback-playground)
+
+## Project Overview
+
+Ethara Feedback Playground is a lightweight AI evaluation interface where users compare two AI-generated responses and provide preference feedback.
+
+The project is inspired by Reinforcement Learning from Human Feedback (RLHF) workflows used in large language model alignment and evaluation systems.
+
+Instead of building a generic CRUD-based management system, this project focuses on:
+
+- Human-in-the-loop evaluation
+- AI response ranking
+- Audit logging
+- Persistent evaluation tracking
+
+## Features
+
+- Compare two AI-generated outputs
+- Select preferred response
+- Equal-quality evaluation option
+- Persistent audit logging
+- Dynamic evaluation history loading
+- Production deployment with Supabase + Vercel
+- Dark themed evaluation workspace
+- Unique RLHF-style evaluation IDs
+- Responsive UI
+
+## Tech Stack
+
+### Frontend
+
+- Next.js 16
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend / Database
+
+- Supabase
+- PostgreSQL
+
+### Deployment
+
+- Vercel
+
+### Development Tools
+
+- GitHub Copilot
+- Cursor AI
+- ChatGPT
+
+## System Architecture
+
+```text
+Frontend (Next.js)
+       ↓
+Evaluation Actions
+       ↓
+Supabase Client
+       ↓
+PostgreSQL Database
+       ↓
+Persistent Audit Log
+```
+
+## Database Schema
+
+### `evaluations`
+
+| Column        | Type |
+|---------------|------|
+| `id`          | text |
+| `timestamp`   | text |
+| `evaluation_id` | text |
+| `choice`      | text |
+
+## Core Workflow
+
+1. User reviews two AI-generated responses
+2. User selects:
+   - Variant Orion Better
+   - Variant Nova Better
+   - Comparable Outputs
+3. Evaluation entry is generated
+4. Data is persisted into Supabase
+5. Audit history updates instantly
+6. Evaluation history reloads on refresh
+
+## Local Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Yashu082/ethara-feedback-playground.git
+```
+
+### Navigate Into Project
+
+```bash
+cd ethara-feedback-playground
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create a `.env.local` file:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application is deployed using Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production deployment includes:
 
-## Learn More
+- Environment variable configuration
+- Supabase database integration
+- Dynamic rendering configuration
+- Production build optimization
 
-To learn more about Next.js, take a look at the following resources:
+## Challenges Solved
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Turbopack runtime instability
+- Next.js deployment configuration
+- Supabase RLS policies
+- TypeScript build issues
+- Dynamic rendering configuration
+- Environment variable deployment issues
+- Persistent audit synchronization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Future Improvements
 
-## Deploy on Vercel
+- Authentication system
+- Real AI model integrations
+- Evaluation analytics dashboard
+- Response quality scoring
+- Multi-user support
+- Evaluation filtering
+- Admin moderation panel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Yaswanth Koppanathi**
+
+Built as an RLHF-inspired evaluation platform for AI alignment workflow simulation.
