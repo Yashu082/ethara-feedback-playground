@@ -13,17 +13,13 @@ export type LogEntry = {
   choice: EvaluationChoice;
 };
 
-let evaluationCounter = 100;
-
 function formatLocalTimestamp(d: Date): string {
   // Matches the existing seed data style like "2:14 PM"
   return d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 }
 
 export function createEvaluationId(): string {
-  // Simple, readable sequential IDs for this client session.
-  evaluationCounter += 1;
-  return `rlhf_${evaluationCounter}`;
+  return `rlhf_${crypto.randomUUID()}`;
 }
 
 export function createEvaluationEntry(choice: EvaluationChoice): LogEntry {

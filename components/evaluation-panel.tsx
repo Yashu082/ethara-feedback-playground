@@ -10,7 +10,7 @@ interface EvaluationPanelProps {
     orion: string;
     nova: string;
   };
-  onEvaluate: (choice: EvaluationChoice) => void;
+  onEvaluate: (choice: EvaluationChoice) => Promise<void> | void;
 }
 
 export default function EvaluationPanel({
