@@ -50,7 +50,7 @@ export default function Home() {
             id: row.id,
             timestamp: row.timestamp,
             evaluationId: row.evaluation_id,
-            choice: row.choice,
+            choice: row.choice as EvaluationChoice,
           }))
           .sort(
             (a, b) => getEvaluationSequence(b.evaluationId) - getEvaluationSequence(a.evaluationId)
