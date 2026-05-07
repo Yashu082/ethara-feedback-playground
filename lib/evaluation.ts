@@ -19,7 +19,7 @@ function formatLocalTimestamp(d: Date): string {
 }
 
 export function createEvaluationId(): string {
-  return `rlhf_${crypto.randomUUID()}`;
+  return `rlhf_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
 }
 
 export function createEvaluationEntry(choice: EvaluationChoice): LogEntry {
